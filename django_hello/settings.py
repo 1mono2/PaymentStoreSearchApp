@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ["*"]
 STATIC_ROOT = 'static' #追加する
 
 # Application definition
+# aaa
 
 INSTALLED_APPS = [
     'django.contrib.admin',
