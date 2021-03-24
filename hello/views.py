@@ -32,7 +32,7 @@ def hello(request):
                 r[4] = str(r[4])
                 r[5] = str(r[5])
                 r = list(r)
-                json_data["data"].append(dict(zip(columns, row)))
+                json_data["data"].append(dict(zip(columns, r)))
 
     json_str = (json.dumps(json_data, ensure_ascii=False))
     #return render(request, 'polls/index.html', json_data)
