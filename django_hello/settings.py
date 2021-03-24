@@ -77,14 +77,20 @@ WSGI_APPLICATION = 'django_hello.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-"""
-DATABASES = {    
+DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }    
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'PaymentStores',
+        'USER': 'taka19980618',
+        'PASSWORD': '1mono2DEDENNE',
+        'HOST': 'paymentmethodsearchapp-server.database.windows.net',
+        'PORT': '1433',
+
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+        },
+    },
 }
-"""
 
 
 # Password validation
