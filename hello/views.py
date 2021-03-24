@@ -26,12 +26,13 @@ def hello(request):
             'DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password) as conn:
         with conn.cursor() as cursor:
             cursor.execute(sql_query)
+            columns = [column[0] for column in cursor.description]
             row = cursor.fetchall()
             for r in row:
                 r[4] = str(r[4])
                 r[5] = str(r[5])
                 r = list(r)
-                json_data["data"].append(r)
+                json_data["data"].append(dict(zip(columns, row)))
 
     json_str = (json.dumps(json_data, ensure_ascii=False))
     #return render(request, 'polls/index.html', json_data)
