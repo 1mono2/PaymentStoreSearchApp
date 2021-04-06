@@ -32,4 +32,4 @@ jobs:
       with:
         app-name: 'PaymentMethodSearchApp'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_2ed2a8c2abeb497abf706f6f4838dcd2 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_a68ff1b873ba445f9826b5bb30afe456 }}
