@@ -16,10 +16,18 @@ def hello(request):
 
     lat = request.GET.get("lat")
     lon = request.GET.get("lon")
+    # existing Database name is {paypay_stores, aupay_stores, Dpoint_stores}
+    payment_method = request.GET.get("pay")
+    if lat is None:
+        lat = str(35.681298)
+    if lon is None:
+        lon = str(139.766247)
+    if payment_method is None:
+        payment_method = "paypay_stores"
     json_data = {"data": []}
 
     # sql_query = "SELECT * FROM shops ORDER BY abs(" + str(lat) + " - latitude) + abs(" + str(lon) + " - longitude) LIMIT 50;"
-    sql_query = "SELECT TOP 50 * FROM paypay_stores1 order by abs(" + lat + \
+    sql_query = "SELECT TOP 50 * FROM " + payment_method + " order by abs(" + lat + \
                 "- latitude) + abs(" + lon + " - longitude); "
 
     with pyodbc.connect(
